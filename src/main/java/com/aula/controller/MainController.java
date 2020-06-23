@@ -10,9 +10,8 @@ public class MainController {
 	
 	@RequestMapping("/")
 	public String index() {
-	 return "index";	
+	 return "/index.html";	
 	}
-	
 	
 	
 	// Login form
@@ -29,4 +28,7 @@ public class MainController {
 	  }
 	
 	
+	  
+	  
+	  
 }
