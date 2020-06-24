@@ -2,6 +2,7 @@ package com.aula.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.aula.model.Funcionario;
 import com.aula.repository.FuncionarioRepository;
-
-
 
 
 
@@ -102,11 +103,30 @@ public class cadastroController {
 		//------------------------------------------------------------------------------  
 		  
 		  
+		  @GetMapping("/removerfuncionario/{idfuncionario}")
+			public ModelAndView excluir(@PathVariable("idfuncionario") Long idfuncionario) {
+				
+				funcionarioRepository.deleteById(idfuncionario);	
+				
+				ModelAndView modelAndView = new ModelAndView("cadastropessoa");
+				modelAndView.addObject("funcionarios", funcionarioRepository.findAll());
+				modelAndView.addObject("pessoaobj", new Funcionario());
+				return modelAndView;
+				
+			}
+		  
+		//-------------------------------------------------------------------------------------  
 		  
 		  
-		  
-		  
-		  
-		  
+		     @GetMapping("/editarfuncionario/{idfuncionario}")
+			 public ModelAndView editar(@PathVariable("idfuncionario") Long idfuncionario) {
+				
+				Optional<Funcionario> funcionario = funcionarioRepository.findById(idfuncionario);
+
+				ModelAndView modelAndView = new ModelAndView("cadastropessoa");
+				modelAndView.addObject("pessoaobj", funcionario.get());
+				return modelAndView;
+				
+			}
 		  
 }

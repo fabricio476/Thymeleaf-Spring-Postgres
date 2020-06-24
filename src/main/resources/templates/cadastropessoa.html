@@ -133,10 +133,8 @@
 			<td th:text="${funcionario.sobrenome}"></td>
 			<td th:text="${funcionario.idade}"></td>
 			
-			<td><ath:href="@{/editarfuncionario/{idfuncionario}(idfuncionario=${funcionario.id})}">Editar</a></td>
-			<td><ath:href="@{/removerfuncionario/{idfuncionario}(idfuncionario=${funcionario.id})}">Excluir</a>
-			
-			</td>
+			<td><a th:href="@{/editarfuncionario/{idfuncionario}(idfuncionario=${funcionario.id})}">Editar</a> </td>
+            <td><a th:href="@{/removerfuncionario/{idfuncionario}(idfuncionario=${funcionario.id})}">Excluir</a> </td>
 		</tr>
 	</table>
 
