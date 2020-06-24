@@ -1,38 +1,84 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
- 
-    
-    
-    
-    <!-- Adicionando JQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-
-	
-<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />	
-
-
-
-
-
-</head>
-
-<body>
-<h3>Spring Boot + Thymeleaf + Material Design Lite</h3><br/>
-
-
-</body>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>cadastro</title>
+        <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/main.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Cadastro</h1>
+        
+        
+        
+        <fieldset>
+        
+        <h2>cadastrar</h2>
+        <!-- 
+            Set the action attribute to "/exercise12/saveCustomer.html", and use
+            th:object to bind the ${customer} variable as the form-backing bean. 
+        -->
+        
+        <form id="formfuncionario" method="post" action="saveFuncionario" >
+            <!-- Use th:field to set field 'id' here -->
+           
+            
+            <div>
+            <!-- Use th:field to show *{firstName} -->
+            <label for="firstName">Nome   :</label>
+            <input type="text" />
+            </div>
+            
+            <br>
+            
+            <div>
+            <!-- Use th:field to show *{lastName} -->
+            <label for="lastName">Sobrenome:</label>
+            <input type="text" />
+            </div>
+            
+            <br>
+            
+            <div>
+            <label for="lastName">Endereço:</label>
+            <input type="text" />
+            </div>
+            
+            <br>
+            
+            <div>
+            <label for="cep">Cep    :</label>
+            <input type="text" />
+            </div>
+            
+            <br>
+            
+            <div>
+            <label for="cep">CPF    :</label>
+            <input type="text" />
+            </div>
+            
+            <br>
+            
+            <div>
+            <label for="cep">Setor  :</label>
+            <input type="text" />
+            </div>
+            
+            <br>
+            
+            <div>
+            <input type="submit" value="cadastrar"/>
+            </div>
+           </form>
+           
+           
+           <br>
+           <br>
+           
+        </fieldset>
+   <!------------------------------------------------------------------------------------------------------------------>     
+        
+        
+        
+    </body>
 </html>

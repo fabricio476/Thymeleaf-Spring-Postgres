@@ -30,6 +30,8 @@ public class Funcionario implements Serializable{
 	
 	private String cpf;
 	
+	private String setor;
+	
 	//@Min(value = 18, message = "Idade inválida")
 	private int idade;
 	
@@ -87,6 +89,14 @@ public class Funcionario implements Serializable{
 
 	public void setIdade(int idade) {
 		this.idade = idade;
+	}
+
+	public String getSetor() {
+		return setor;
+	}
+
+	public void setSetor(String setor) {
+		this.setor = setor;
 	}
 
 	
