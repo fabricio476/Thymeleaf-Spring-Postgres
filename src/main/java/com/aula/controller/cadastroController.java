@@ -29,14 +29,23 @@ public class cadastroController {
 		  }
 
 		  
-		  
-		  @RequestMapping(method = RequestMethod.GET, value = "/cadastropessoa.html")
+		  //inicia a pagina cadastropessoa html
+		  @RequestMapping(method = RequestMethod.GET, value = "/cadastropessoa.html") //link
 			public ModelAndView inicio() {
-				ModelAndView modelAndView = new ModelAndView("cadastropessoa");
-				modelAndView.addObject("pessoaobj", new Funcionario());
-				Iterable<Funcionario> pessoasIt = funcionarioRepository.findAll();
+				ModelAndView modelAndView = new ModelAndView("cadastropessoa"); //pagina html
+				modelAndView.addObject("pessoaobj", new Funcionario()); //adiciona um objeto vasio do tipo funcionaro no form
+				Iterable<Funcionario> pessoasIt = funcionarioRepository.findAll(); //adiciona todos os elementos
 				modelAndView.addObject("funcionarios", pessoasIt);
+				
+				
+				
+				
+				
+				
 				return modelAndView;
+				
+				
+				
 			}
 		  
 		  
