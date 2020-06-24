@@ -18,14 +18,21 @@
             th:object to bind the ${customer} variable as the form-backing bean. 
         -->
         
-        <form id="formfuncionario" method="post" action="saveFuncionario" >
+        <form id="formfuncionario" method="post" action="saveFuncionario" th:object="${pessoaobj}">
             <!-- Use th:field to set field 'id' here -->
            
+           
+           <div>
+            <label for="firstName">Id   :</label>
+            <input name="id" th:field="*{id}" id="id" readonly="readonly">
+            </div>
+           
+           <br>
             
             <div>
             <!-- Use th:field to show *{firstName} -->
             <label for="firstName">Nome   :</label>
-            <input type="text" />
+            <input name="nome" th:field="*{nome}" id="nome" class="validate" type="text">
             </div>
             
             <br>
@@ -33,35 +40,43 @@
             <div>
             <!-- Use th:field to show *{lastName} -->
             <label for="lastName">Sobrenome:</label>
-            <input type="text" />
+            <input name="sobrenome" class="validate" th:field="*{sobrenome}" id="sobrenome">
             </div>
             
             <br>
             
             <div>
+            <label for="lastName">Idade:</label>
+            <input name="idade" th:field="*{idade}" id="idade" >
+            </div>
+           
+            
+            <br>
+            
+            <div>
             <label for="lastName">Endereço:</label>
-            <input type="text" />
+            <input name="endereco" th:field="*{endereco}" id="endereco" >
             </div>
             
             <br>
             
             <div>
             <label for="cep">Cep    :</label>
-            <input type="text" />
+            <input name="cep" th:field="*{cep}" id="cep" >
             </div>
             
             <br>
             
             <div>
             <label for="cep">CPF    :</label>
-            <input type="text" />
+            <input name="cpf" th:field="*{cpf}" id="cpf" >
             </div>
             
             <br>
             
             <div>
             <label for="cep">Setor  :</label>
-            <input type="text" />
+            <input name="setor" th:field="*{setor}" id="setor" >
             </div>
             
             <br>
