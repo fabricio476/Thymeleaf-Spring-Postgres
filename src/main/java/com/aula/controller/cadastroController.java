@@ -9,12 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.aula.model.Funcionario;
 import com.aula.repository.FuncionarioRepository;
+
 
 
 
@@ -39,6 +42,7 @@ public class cadastroController {
 				return modelAndView;
 			}
 		  
+		  //-----------------------------------------------
 		  
 		  @RequestMapping(method = RequestMethod.POST, value = "**/saveFuncionario") //link action form
 			public ModelAndView salvar(@Valid Funcionario funcionario, BindingResult bindingResult) {
@@ -69,6 +73,37 @@ public class cadastroController {
 				return andView;
 
 			}
+		  
+		  //-----------------------------------------
+		  
+		  
+		  @PostMapping("**/pesquisarpessoa")
+			public ModelAndView pesquisar(@RequestParam("nomepesquisa") String nomepesquisa) {
+				ModelAndView modelAndView = new ModelAndView("cadastropessoa"); //pagina
+				modelAndView.addObject("funcionarios", funcionarioRepository.findFuncionarioByName(nomepesquisa));
+				modelAndView.addObject("pessoaobj", new Funcionario());
+				return modelAndView;
+			}
+		  
+		  
+		//-------------------------------------------------------  
+		  
+		  
+		  @RequestMapping(method = RequestMethod.GET, value = "/listafuncionarios")
+			public ModelAndView pessoas() {
+				ModelAndView andView = new ModelAndView("cadastropessoa");
+				Iterable<Funcionario> pessoasIt = funcionarioRepository.findAll();
+				andView.addObject("funcionarios", pessoasIt);
+				andView.addObject("pessoaobj", new Funcionario());
+				return andView;
+			}
+		  
+		  
+		//------------------------------------------------------------------------------  
+		  
+		  
+		  
+		  
 		  
 		  
 		  

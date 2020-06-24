@@ -1,99 +1,144 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>cadastro</title>
-        <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/main.css}" />
-        <meta charset="utf-8" />
-    </head>
-    <body>
-        <h1>Cadastro</h1>
-        
-        
-        
-        <fieldset>
-        
-        <h2>cadastrar</h2>
-        <!-- 
+<head>
+<title>cadastro</title>
+<link rel="stylesheet" href="../../../css/main-static.css"
+	th:href="@{/css/main.css}" />
+<meta charset="utf-8" />
+</head>
+<body>
+	<h1>Cadastro</h1>
+
+
+
+	<fieldset>
+
+		<h2>cadastrar</h2>
+		<!-- 
             Set the action attribute to "/exercise12/saveCustomer.html", and use
             th:object to bind the ${customer} variable as the form-backing bean. 
         -->
-        
-        <form id="formfuncionario" method="post" action="saveFuncionario" th:object="${pessoaobj}">
-            <!-- Use th:field to set field 'id' here -->
-           
-           
-           <div>
-            <label for="firstName">Id   :</label>
-            <input name="id" th:field="*{id}" id="id" readonly="readonly">
-            </div>
-           
-           <br>
-            
-            <div>
-            <!-- Use th:field to show *{firstName} -->
-            <label for="firstName">Nome   :</label>
-            <input name="nome" th:field="*{nome}" id="nome" class="validate" type="text">
-            </div>
-            
-            <br>
-            
-            <div>
-            <!-- Use th:field to show *{lastName} -->
-            <label for="lastName">Sobrenome:</label>
-            <input name="sobrenome" class="validate" th:field="*{sobrenome}" id="sobrenome">
-            </div>
-            
-            <br>
-            
-            <div>
-            <label for="lastName">Idade:</label>
-            <input name="idade" th:field="*{idade}" id="idade" >
-            </div>
-           
-            
-            <br>
-            
-            <div>
-            <label for="lastName">Endereço:</label>
-            <input name="endereco" th:field="*{endereco}" id="endereco" >
-            </div>
-            
-            <br>
-            
-            <div>
-            <label for="cep">Cep    :</label>
-            <input name="cep" th:field="*{cep}" id="cep" >
-            </div>
-            
-            <br>
-            
-            <div>
-            <label for="cep">CPF    :</label>
-            <input name="cpf" th:field="*{cpf}" id="cpf" >
-            </div>
-            
-            <br>
-            
-            <div>
-            <label for="cep">Setor  :</label>
-            <input name="setor" th:field="*{setor}" id="setor" >
-            </div>
-            
-            <br>
-            
-            <div>
-            <input type="submit" value="cadastrar"/>
-            </div>
-           </form>
-           
-           
-           <br>
-           <br>
-           
-        </fieldset>
-   <!------------------------------------------------------------------------------------------------------------------>     
-        
-        
-        
-    </body>
+
+		<form id="formfuncionario" method="post" action="saveFuncionario"
+			th:object="${pessoaobj}">
+			<!-- Use th:field to set field 'id' here -->
+
+
+			<div>
+				<label for="firstName">Id :</label> <input name="id"
+					th:field="*{id}" id="id" readonly="readonly">
+			</div>
+
+			<br>
+
+			<div>
+				<!-- Use th:field to show *{firstName} -->
+				<label for="firstName">Nome :</label> <input name="nome"
+					th:field="*{nome}" id="nome" class="validate" type="text">
+			</div>
+
+			<br>
+
+			<div>
+				<!-- Use th:field to show *{lastName} -->
+				<label for="lastName">Sobrenome:</label> <input name="sobrenome"
+					class="validate" th:field="*{sobrenome}" id="sobrenome">
+			</div>
+
+			<br>
+
+			<div>
+				<label for="lastName">Idade:</label> <input name="idade"
+					th:field="*{idade}" id="idade">
+			</div>
+
+
+			<br>
+
+			<div>
+				<label for="lastName">Endereço:</label> <input name="endereco"
+					th:field="*{endereco}" id="endereco">
+			</div>
+
+			<br>
+
+			<div>
+				<label for="cep">Cep :</label> <input name="cep" th:field="*{cep}"
+					id="cep">
+			</div>
+
+			<br>
+
+			<div>
+				<label for="cep">CPF :</label> <input name="cpf" th:field="*{cpf}"
+					id="cpf">
+			</div>
+
+			<br>
+
+			<div>
+				<label for="cep">Setor :</label> <input name="setor"
+					th:field="*{setor}" id="setor">
+			</div>
+
+			<br>
+
+			<div>
+				<input type="submit" value="cadastrar" />
+			</div>
+		</form>
+
+
+		<br> <br>
+
+	</fieldset>
+	<!------------------------------------------------------------------------------------------------------------------>
+
+	<br />
+	<br />
+
+	<div class="row">
+		<form action="pesquisarpessoa" method="post" class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<label for="nomepesquisa" class="active">Pesquia por nome:</label>
+					<input name="nomepesquisa" id="nomepesquisa" class="validate">
+					<input class="waves-effect waves-light btn" type="submit"
+						value="Buscar"> <a class="waves-effect waves-light btn"
+						href="/listafuncionarios">Lista Pessoas</a>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- ---------------------------------------------------------------------------------------------------------------->
+
+	<br />
+	<br />
+	<table class="striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Sobrenome</th>
+				<th>Idade</th>
+				<th>Editar</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+		
+		<tr th:each="funcionario : ${funcionarios}">
+			<td th:text="${funcionario.id}"></td>
+			<td th:text="${funcionario.nome}"></td>
+			<td th:text="${funcionario.sobrenome}"></td>
+			<td th:text="${funcionario.idade}"></td>
+			
+			<td><ath:href="@{/editarfuncionario/{idfuncionario}(idfuncionario=${funcionario.id})}">Editar</a></td>
+			<td><ath:href="@{/removerfuncionario/{idfuncionario}(idfuncionario=${funcionario.id})}">Excluir</a>
+			
+			</td>
+		</tr>
+	</table>
+
+</body>
 </html>
