@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<meta charset="UTF-8">
 <title>cadastro</title>
-<link rel="stylesheet" href="../../../css/main-static.css"
-	th:href="@{/css/main.css}" />
-<meta charset="utf-8" />
+<link rel="stylesheet" href="../../../css/main-static.css"th:href="@{/css/main.css}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <style type="text/css">
+table.striped>tbody>tr:nth-child(odd) {
+	background-color: rgba(158, 154, 154, 0.5);
+}
+
+form input[type=submit] {
+	color: white;
+}
+
+table {
+ width: 100%;
+}
+
+table td, table th {
+ border: 1px solid grey;
+}
+
+table th {
+ background: #eee;
+}
+
+</style>
 </head>
 <body>
 	<h1>Cadastro</h1>
@@ -84,7 +108,7 @@
 			<br>
 
 			<div>
-				<input type="submit" value="cadastrar" />
+				<input class="waves-effect waves-light btn" type="submit" value="cadastrar" />
 			</div>
 		</form>
 
@@ -112,6 +136,7 @@
 	</div>
 
 	<!-- ---------------------------------------------------------------------------------------------------------------->
+<fieldset>
 
 	<br />
 	<br />
@@ -137,6 +162,8 @@
             <td><a th:href="@{/removerfuncionario/{idfuncionario}(idfuncionario=${funcionario.id})}">Excluir</a> </td>
 		</tr>
 	</table>
+	
+</fieldset>	
 
 </body>
 </html>
