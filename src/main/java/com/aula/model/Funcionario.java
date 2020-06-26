@@ -2,13 +2,14 @@ package com.aula.model;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Funcionario implements Serializable{
+public class Funcionario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,8 @@ public class Funcionario implements Serializable{
 	
 	private String setor;
 	
+
+
 	//@Min(value = 18, message = "Idade inválida")
 	private int idade;
 	
@@ -98,6 +101,8 @@ public class Funcionario implements Serializable{
 	public void setSetor(String setor) {
 		this.setor = setor;
 	}
+
+	
 
 	
 	

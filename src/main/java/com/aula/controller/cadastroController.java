@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.aula.model.Funcionario;
 import com.aula.repository.FuncionarioRepository;
-
 
 
 @Controller
@@ -30,6 +30,7 @@ public class cadastroController {
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 	
+	CargoController cargo;
 	
 
 		  
@@ -63,6 +64,12 @@ public class cadastroController {
 					modelAndView.addObject("msg", msg);
 					return modelAndView;
 				}
+				
+				
+				cargo.cargoDoFuncionario(funcionario);
+				
+				
+				
 				
 				funcionarioRepository.save(funcionario);
 
