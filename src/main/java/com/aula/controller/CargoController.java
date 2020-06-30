@@ -12,6 +12,8 @@ public class CargoController {
 	
 	Factory factory = new CargoFactory();
 	
+	
+	//// metodo factory
 	public void cargoDoFuncionario(Funcionario funcionario) {
 		
 		Cargo cargo = factory.escolherCargo(funcionario.getCargo());
