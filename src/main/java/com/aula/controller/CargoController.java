@@ -14,7 +14,7 @@ public class CargoController {
 	
 	public void cargoDoFuncionario(Funcionario funcionario) {
 		
-		Cargo cargo = factory.escolherCargo(funcionario.getSetor());
+		Cargo cargo = factory.escolherCargo(funcionario.getCargo());
 		
 		cargo.setIdFuncionario(funcionario.getId());
 		

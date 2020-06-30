@@ -33,7 +33,8 @@ public class Funcionario implements Serializable {
 	
 	private String setor;
 	
-
+	private String cargo;
+	
 
 	//@Min(value = 18, message = "Idade inválida")
 	private int idade;
@@ -100,6 +101,14 @@ public class Funcionario implements Serializable {
 
 	public void setSetor(String setor) {
 		this.setor = setor;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
 
 	
